@@ -1,19 +1,13 @@
-from django.contrib.auth.models import User
 from rest_framework.generics import (
     ListAPIView,
     CreateAPIView,
     RetrieveAPIView,
     UpdateAPIView,
-DestroyAPIView,	
+    DestroyAPIView,
 )
 
 from .models import Car
-from .serializer import CarSerializer, UserSerializer
-
-
-class UsersView(ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+from .serializer import CarSerializer
 
 
 class CarsView(ListAPIView):
@@ -37,5 +31,5 @@ class UpdateCarView(UpdateAPIView):
 
 
 class DeleteCarView(DestroyAPIView):
-	queryset = Car.objects.all()
-	serializer_class = CarSerializer
+    queryset = Car.objects.all()
+    serializer_class = CarSerializer
