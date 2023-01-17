@@ -3,7 +3,9 @@ from rest_framework.generics import (
     ListAPIView,
     CreateAPIView,
     RetrieveAPIView,
-    UpdateAPIView)
+    UpdateAPIView,
+DestroyAPIView,	
+)
 
 from .models import Car
 from .serializer import CarSerializer, UserSerializer
@@ -32,3 +34,8 @@ class GetCarView(RetrieveAPIView):
 class UpdateCarView(UpdateAPIView):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
+
+
+class DeleteCarView(DestroyAPIView):
+	queryset = Car.objects.all()
+	serializer_class = CarSerializer
